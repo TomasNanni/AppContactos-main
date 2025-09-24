@@ -1,0 +1,6 @@
+<p>Contacto Nº {{index() +1}} {{contacto().firstName}}
+    @if(contacto().isFavorite){
+        ⭐
+    }
+    <button (click)="contactsService.deleteContact(contacto().id)">Borrar</button>
+</p>

@@ -1,0 +1,19 @@
+#leftBar{
+	background-color: var(--color-primary);
+	border-right: 5px var(--secondary-color) solid;
+	display: flex;
+    align-items: center;
+    flex-direction: column;
+	min-height: fit-content;
+	float:inline-start;
+	height: 100%;
+	top: 0;
+	position: fixed;
+	z-index: 1;
+	overflow-x: hidden;
+	width: 160px;
+	justify-content: space-evenly;
+	div{
+		text-align: center;
+	}
+}

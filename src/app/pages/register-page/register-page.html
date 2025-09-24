@@ -1,0 +1,59 @@
+<header>
+  <h1>Registrarse</h1>
+</header>
+<div id="container" class="contenedorCentrado">
+  <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+    <div class="contenedorInput">
+      <label for="firstName">Nombre*</label>
+      <input class="inputPrimario" name="firstName" id="firstName" ngModel #firstName="ngModel" required="true"
+        autocomplete="firstName">
+      @if (firstName.invalid && !firstName.pristine) {
+      <p class="error">Debe colocar un Nombre.</p>
+      }
+    </div>
+    <div class="contenedorInput">
+      <label for="lastName">Apellido*</label>
+      <input class="inputPrimario" name="lastName" id="lastName" ngModel #lastName="ngModel" required="true"
+        autocomplete="lastName">
+      @if (lastName.invalid && !lastName.pristine) {
+      <p class="error">Debe colocar un Apellido.</p>
+      }
+    </div>
+    <div class="contenedorInput">
+      <label for="email">Correo electrónico*</label>
+      <input class="inputPrimario" name="email" type="email" id="email" ngModel #email="ngModel" required="true"
+        autocomplete="email">
+      @if (email.invalid && !email.pristine) {
+      <p class="error">Debe colocar un correo electrónico.</p>
+      }
+    </div>
+    <div class="contenedorInput">
+      <label for="password">Contraseña*</label>
+      <input id="password" class="inputPrimario" name="password" type="password" ngModel #password="ngModel" minlength="4"
+        autocomplete="new-password" required>
+      @if (password.invalid && !password.pristine) {
+      <p class="error">Debe colocar una contraseña de al menos 4 caracteres.</p>
+      }
+    </div>
+    <div class="contenedorInput">
+      <label for="password">Repite la contraseña*</label>
+      <input id="password2" class="inputPrimario" name="password2" type="password" ngModel #password2="ngModel" minlength="4"
+        autocomplete="new-password" required>
+      @if (password.invalid && !password.pristine) {
+      <p class="error">Debe colocar una contraseña de al menos 4 caracteres.</p>
+      }
+    </div>
+    <div class="contenedorInput">
+      <button>Registrarse</button>
+    </div>
+    @if (isLoading) {
+    <p class="error">Cargando...</p>
+    }
+    @if (errorRegister) {
+    <p class="error">Error indeterminado, intente nuevamente.</p>
+    }
+    <div class="contenedorInput">
+      <p>Ya tenés cuenta? <a routerLink="/">Inicia sesion</a> </p>
+    </div>
+  </form>
+</div>
