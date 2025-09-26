@@ -2,5 +2,6 @@
     @if(contacto().isFavorite){
         ⭐
     }
+     <a [routerLink]="['/logged/contact',contacto().id,'edit']">Editar</a>
     <button (click)="contactsService.deleteContact(contacto().id)">Borrar</button>
 </p>

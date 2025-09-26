@@ -75,6 +75,17 @@ body{
     color: var(--color-text-secondary);
 }
 
+header{
+    background-color: var(--color-primary);
+    text-align: center;
+    border-bottom: 5px solid var(--secondary-color);
+
+    h1 {
+        color: var(--color-text);
+        font-size: 1.5em;
+        padding: 10px;
+    }
+}
 
 .main{
   margin-left: 160px;

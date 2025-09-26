@@ -6,6 +6,7 @@ import { LoggedLayout } from './layouts/logged-layout/logged-layout/logged-layou
 import { onlyUserGuard } from './guards/only-user-guard-guard';
 import { ContactDetailsPage } from './pages/contact-details-page/contact-details-page';
 import { onlyPublicGuard } from './guards/only-public-guard-guard';
+import { NewEditContact } from './pages/new-edit-contact/new-edit-contact';
 
 export const routes: Routes = [
     {
@@ -22,6 +23,14 @@ export const routes: Routes = [
                 path: "contact-details-page",
                 component: ContactDetailsPage
             },
+            {
+                path: "contact/new",
+                component: NewEditContact
+            },
+            {
+                path: "contact/id:Contact/edit",
+                component: NewEditContact
+            }
         ]
     },
 

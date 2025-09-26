@@ -36,19 +36,6 @@ a:hover {
     gap: 0.5rem;
 }
 
-
-header {
-    background-color: var(--color-primary);
-    text-align: center;
-    border-bottom: 5px solid var(--secondary-color);
-
-    h1 {
-        color: var(--color-text);
-        font-size: 1.5em;
-        padding: 10px;
-    }
-}
-
 button {
     color: var(--color-text-secondary);
 }

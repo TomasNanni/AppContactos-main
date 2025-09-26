@@ -1,69 +1,11 @@
-<div class="body">
-  @for (contacto of contactsService.contactos; track $index) {
+<div class="main">
+  <header>
+    <h1>Contactos</h1>
+  </header>
+  @for (contacto of contactsService.contacts; track $index) {
   <app-contact-list-item [contacto]="contacto" [index]="$index" />
   } @empty {
-  <p>No hay contactos</p>
+  <p>No hay contactos, <a routerLink="/logged/contact/new">agregá uno</a>.</p>
   }
-  <div class="card">
-    <form (ngSubmit)="createContact(newContactForm.value)" #newContactForm="ngForm">
-      <div>
-        <label for="first-name">Nombre*</label>
-        <input
-          type="text"
-          name="firstName"
-          id="first-name"
-          ngModel
-          required="true"
-          maxlength="50"
-          #firstName="ngModel"
-        />
-        @if (firstName.dirty && firstName.invalid) {
-        <p class="error">El nombre es obligatorio</p>
-        }
-      </div>
-      <div>
-        <label for="last-name">Apellido</label>
-        <input type="text" name="lastName" id="last-name" ngModel maxlength="50" />
-      </div>
-      <div>
-        <label for="email">Email</label>
-        <input type="text" name="email" id="email" ngModel maxlength="50" />
-      </div>
-      <div>
-        <label for="address">Direccion</label>
-        <input type="text" name="address" id="address" ngModel maxlength="50" />
-      </div>
-      <div>
-        <label for="number">Telefono*</label>
-        <input
-          type="text"
-          name="number"
-          id="number"
-          ngModel
-          maxlength="50"
-          required="true"
-          minlength="4"
-          #phone="ngModel"
-        />
-        @if (phone.dirty && phone.invalid) {
-        <p class="error">
-          El telefono es obligatorio y tiene que tener al menos 4 caracteres y no mas de 50
-        </p>
-        }
-      </div>
-      <div>
-        <label for="company">Compania</label>
-        <input type="text" name="company" id="company" ngModel maxlength="50" />
-      </div>
-      <div>
-        <label for="description">Descripcion</label>
-        <input type="text" name="description" id="description" ngModel />
-      </div>
-      <div>
-        <label for="image">Url imagen</label>
-        <input type="text" name="image" id="image" ngModel />
-      </div>
-      <button [disabled]="newContactForm.invalid">+</button>
-    </form>
-  </div>
+  <a routerLink="/logged/contact/new">Nuevo contacto +</a>
 </div>

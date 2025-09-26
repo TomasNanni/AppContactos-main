@@ -19,23 +19,4 @@ export class ContactListPage implements OnInit {
 
   contactsService = inject(ContactsService)
   authService = inject(Auth)
-
-  createContact(form: any) {
-    console.log(form)
-
-    const newContact: NewContact = {
-      firstName: form.firstName,
-      lastName: form.lastName,
-      address: form.address,
-      email: form.email,
-      number: form.number,
-      company: form.company,
-      description: form.description,
-      image: form.image
-    }
-
-    this.contactsService.createContact(newContact)
-
-
-  }
 }

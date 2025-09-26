@@ -6,7 +6,7 @@ export const onlyPublicGuard: CanActivateFn = (route, state) => {
   const authService = inject(Auth);
   const router = inject(Router);
   if (authService.token) {
-    const redirectPath = router.parseUrl("/logged-layout");
+    const redirectPath = router.parseUrl("/logged/contact-list-page");
     return new RedirectCommand(redirectPath, {
       skipLocationChange: true,
     });

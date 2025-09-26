@@ -8,23 +8,34 @@ import { Auth } from './auth-service';
 export class ContactsService {
   authService = inject(Auth);
 
-  contactos: Contact[] = [];
+  readonly URL_BASE = "https://agenda-api.somee.com/api/contacts";
 
-  createContact(nuevoContacto: NewContact) {
-    const contacto: Contact = {
-      ...nuevoContacto,
-      id: Math.random(),
-      isFavorite: false
-    }
-    this.contactos.push(contacto)
+  contacts: Contact[] = [];
+
+  async createContact(nuevoContacto: NewContact) {
+    const res = await fetch(this.URL_BASE,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + this.authService.token,
+        },
+        body: JSON.stringify(nuevoContacto)
+      });
+    if (!res.ok) return;
+    const resContact: Contact = await res.json();
+    this.contacts.push(resContact);
+    return resContact;
   }
 
+  /** Elimina un contacto segun su ID */
   deleteContact(id: number) {
-    this.contactos = this.contactos.filter(contacto => contacto.id !== id);
+    this.contacts = this.contacts.filter(contacto => contacto.id !== id);
   }
 
   editContact() { }
 
+  /** Obtiene los contactos del backend */
   async getContacts() {
     const res = await fetch('https://agenda-api.somee.com/api/Contacts',
       {
@@ -35,7 +46,7 @@ export class ContactsService {
       })
     if (res.ok) {
       const resJson: Contact[] = await res.json()
-      this.contactos = resJson;
+      this.contacts = resJson;
     }
   }
 

@@ -6,7 +6,7 @@ export const onlyUserGuard: CanActivateChildFn = (childRoute, state) => {
   const authService = inject(Auth)
   const router = inject(Router);
   if (!authService.token) {
-    const redirectPath = router.parseUrl("");
+    const redirectPath = router.parseUrl("/");
     return new RedirectCommand(redirectPath, {
       skipLocationChange: true,
     });
