@@ -37,7 +37,7 @@ export class ContactsService {
 
   /** Obtiene los contactos del backend */
   async getContacts() {
-    const res = await fetch('https://agenda-api.somee.com/api/Contacts',
+    const res = await fetch(this.URL_BASE,
       {
         method: "GET",
         headers: {

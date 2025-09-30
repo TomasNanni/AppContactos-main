@@ -14,7 +14,7 @@ export class NewEditContact {
   contactsService = inject(ContactsService);
   router = inject(Router)
   errorEnBack = false;
-  idContact = input<string>
+  idContacto = input<string>
 
   async handleFormSubmission(form:NgForm){
     this.errorEnBack = false;
