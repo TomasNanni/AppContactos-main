@@ -3,7 +3,7 @@
 <div class="contenedorCentrado">
     <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
         <div class="contenedorInput">
-            <label for="Email">Nombre de Usuario</label>
+            <label for="Email">Correo Electronico</label>
             <input class="inputPrimario" name="email" type="email" id="email" ngModel #email="ngModel" required="true" autocomplete="email" placeholder="ejemplo@gmail.com">
             @if (email.invalid && !email.pristine) {
                 <p class="error">Debe colocar un correo electrónico.</p>
