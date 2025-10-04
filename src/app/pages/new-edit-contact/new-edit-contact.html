@@ -1,5 +1,5 @@
 <!-- Toda la parte de nuevo contacto luego irá en una nueva pestaña o en una ventana emergente. A elección. -->
-@if(idContacto()){
+@if(idContact()){
 <header>
   <h1>Editar Contacto</h1>
 </header>
@@ -8,9 +8,6 @@
   <h1>Nuevo Contacto</h1>
 </header>
 }
-<header>
-  <h1>Nuevo Contacto</h1>
-</header>
 <div class="contenedorCentrado">
   <form (ngSubmit)="handleFormSubmission(newContactForm)" #newContactForm="ngForm">
     <div class="contenedorInput">
@@ -54,7 +51,7 @@
     <p class="error">Error indeterminado, intente nuevamente.</p>
     }
     <div class="contenedorInput">
-      @if(idContacto()){
+      @if(idContact()){
       <button [disabled]="newContactForm.invalid">Editar</button>
       } @else {
       <button [disabled]="newContactForm.invalid">Agregar</button>

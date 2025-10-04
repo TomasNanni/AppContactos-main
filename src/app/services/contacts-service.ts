@@ -33,7 +33,27 @@ export class ContactsService {
     this.contacts = this.contacts.filter(contacto => contacto.id !== id);
   }
 
-  editContact() { }
+  async editContact(contact: Contact) {
+    const res = await fetch(this.URL_BASE + "/" + contact.id,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + this.authService.token,
+        },
+        body: JSON.stringify(contact),
+      });
+    if (!res.ok) {
+      return
+    }
+
+    this.contacts = this.contacts.map(oldContact => {
+      if (oldContact.id === contact.id) return contact;
+      return oldContact;
+    })
+    return contact;
+
+  }
 
   /** Obtiene los contactos del backend */
   async getContacts() {
@@ -48,6 +68,22 @@ export class ContactsService {
       const resJson: Contact[] = await res.json()
       this.contacts = resJson;
     }
+  }
+
+  async getContactById(id: string | number) {
+    const res = await fetch(this.URL_BASE + "/" + id,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + this.authService.token
+        }
+      }
+    )
+    if (res.ok) {
+      const resJson: Contact = await res.json();
+      return resJson;
+    }
+    return null;
   }
 
 }

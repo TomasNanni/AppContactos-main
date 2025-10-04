@@ -7,3 +7,15 @@ div{
     align-items: baseline;
     gap: 2em;
 }
+
+button {
+    color: var(--color-text-secondary);
+}
+
+a{
+    text-decoration: underline;
+}
+
+a:hover{
+    filter: brightness(70%);
+}

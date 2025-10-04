@@ -15,8 +15,7 @@ form {
     padding: 40px 60px;
 }
 
-button:hover:valid,
-a:hover {
+button:hover:valid, a:hover {
     filter: brightness(70%);
 }
 
@@ -32,7 +31,6 @@ a:hover {
     a {
         text-decoration: underline;
     }
-
     gap: 0.5rem;
 }
 
