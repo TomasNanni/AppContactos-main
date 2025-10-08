@@ -32,7 +32,8 @@
       <input id="password" class="inputPrimario" name="password" type="password" ngModel #password="ngModel" minlength="4"
         autocomplete="new-password" required>
       @if (password.invalid && !password.pristine) {
-      <p class="error">Debe colocar una contraseña de al menos 4 caracteres.</p>
+      <pre class="error">Debe colocar una contraseña
+de al menos 4 caracteres.</pre>
       }
     </div>
     <div class="contenedorInput">
@@ -40,7 +41,8 @@
       <input id="password2" class="inputPrimario" name="password2" type="password" ngModel #password2="ngModel" minlength="4"
         autocomplete="new-password" required>
       @if (password.invalid && !password.pristine) {
-      <p class="error">Debe colocar una contraseña de al menos 4 caracteres.</p>
+      <pre class="error">Debe colocar una contraseña
+de al menos 4 caracteres.</pre>
       }
     </div>
     <div class="contenedorInput">

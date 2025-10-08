@@ -1,1 +1,20 @@
-@use "./../login-page/login-page.scss"
+@use "./../login-page/login-page.scss";
+
+.contenedorCentrado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: fit-content;
+    margin: auto;
+    margin-top: 3%;
+    margin-bottom: 5%;
+    background-color: var(--color-primary);
+    border: var(--secondary-color) 0.3em solid;
+    border-radius: 0.75em;
+}
+
+.error {
+    padding-top: 0.5em;
+    color: var(--secondary-color);
+}
