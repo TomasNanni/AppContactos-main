@@ -1,9 +1,9 @@
-<div class="contenedorContacto">
+<div class="contenedorContact">
   <div>
     Contacto Nº {{ index() + 1 }} {{ contacto().firstName }}
     @if(contacto().isFavorite){ ⭐ }
   </div>
-  <div>
+  <div class="contactOptions"> 
     <a [routerLink]="['/logged/contact', contacto().id, 'edit']">Editar</a>
     <button (click)="contactsService.deleteContact(contacto().id)">Borrar</button>
   </div>

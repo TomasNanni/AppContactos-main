@@ -8,14 +8,15 @@
   <h1>Nuevo Contacto</h1>
 </header>
 }
-<div class="contenedorCentrado">
+<div class="containerCenter">
   <form (ngSubmit)="handleFormSubmission(newContactForm)" #newContactForm="ngForm">
     <div class="contenedorInput">
       <label for="first-name">Nombre*</label>
       <input class="inputPrimario" id="first-name" name="firstName" type="text" ngModel required="true" minlength="2"
         maxlength="20" #firstName="ngModel">
       @if (firstName.dirty && firstName.invalid) {
-      <p class="error">El nombre es obligatorio y no puede ser una sola letra</p>
+      <pre class="error">El nombre es obligatorio y
+  no puede ser una sola letra</pre>
       }
     </div>
     <div class="contenedorInput">

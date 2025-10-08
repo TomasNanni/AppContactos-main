@@ -2,7 +2,13 @@ div{
     color: red;
 }
 
-.contenedorContacto{
+.contactOptions{
+    display: flex;
+    gap: 2em;
+    align-items: center;
+}
+
+.contenedorContact{
     display: flex;
     align-items: baseline;
     gap: 2em;

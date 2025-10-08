@@ -17,10 +17,6 @@ export class ContactListPage implements OnInit {
     this.contactsService.getContacts();
   }
 
-  ngOnRefresh(): void{
-    this.contactsService.getContacts();
-  }
-
   contactsService = inject(ContactsService)
   authService = inject(Auth)
 }
