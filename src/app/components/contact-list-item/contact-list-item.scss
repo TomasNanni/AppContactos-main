@@ -2,10 +2,13 @@ div{
     color: red;
 }
 
-.contactOptions{
-    display: flex;
-    gap: 2em;
-    align-items: center;
+#star{
+    border: none;
+    background-color: var(--color-primary-background);
+}
+
+svg{
+    height: 1.5em;
 }
 
 .contenedorContact{

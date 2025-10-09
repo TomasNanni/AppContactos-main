@@ -21,6 +21,12 @@
 	}
 }
 
+svg:hover {
+	transform: scale(1.2);
+	filter: brightness(75%);
+	transition-duration: 100ms;
+}
+
 svg {
 	height: 3.5em;
 	color: red;
