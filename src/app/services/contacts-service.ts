@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Contact, NewContact } from '../interfaces/contacto';
 import { Auth } from './auth-service';
+import { EventDispatcher } from '@angular/core/primitives/event-dispatch';
 
 @Injectable({
   providedIn: 'root'
@@ -95,8 +96,25 @@ export class ContactsService {
     return null;
   }
 
-  makeFavourite(){
-    
+  async makeFavourite(contactId: number) {
+    let contact = await this.getContactById(contactId);
+    if (contact) {
+      contact.isFavorite = true;
+      const editedContact = await this.editContact(contact);
+      return editedContact;
+    }
+    return null;
+  }
+
+  async notFavourite(contactId: number) {
+    let contact = await this.getContactById(contactId);
+    if (contact) {
+      contact.isFavorite = false;
+      const editedContact = await this.editContact(contact);
+      return editedContact;
+    }
+    return null;
   }
 
 }
+
