@@ -12,5 +12,17 @@
     flex-wrap: nowrap;
 }
 
+td{
+    display: block;
+}
+
+tr:nth-child(even) {
+  background-color: var(--color-primary);
+}
+
+table{
+    display: flex;
+    flex-direction: column;
+}
 
 
