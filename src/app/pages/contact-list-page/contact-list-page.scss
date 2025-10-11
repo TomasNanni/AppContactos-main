@@ -15,6 +15,9 @@
 td{
     display: block;
 }
+td:hover{
+    filter: brightness(150%);
+}
 
 tr:nth-child(even) {
   background-color: var(--color-primary);

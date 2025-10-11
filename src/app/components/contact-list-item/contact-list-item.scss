@@ -3,10 +3,8 @@ div{
 }
 .star {
     border: none;
-    background-color: var(--color-primary-background);
+    background-color: inherit;
 }
-
-
 
 svg {
     height: 1.5em;
@@ -20,9 +18,7 @@ svg {
     color: red;
 }
 
-.contenedorContact:hover{
-    transform: scale(1.1);
-}
+
 
 button {
     color: var(--color-text-secondary);
