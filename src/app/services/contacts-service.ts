@@ -116,5 +116,10 @@ export class ContactsService {
     return null;
   }
 
+  sortContacts(contacts: Contact[]){
+    console.log(contacts.sort)
+    
+  }
+
 }
 

@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject, input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Contact } from '../../interfaces/contacto';
+import { ContactsService } from '../../services/contacts-service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact-details-page',
@@ -6,6 +10,60 @@ import { Component } from '@angular/core';
   templateUrl: './contact-details-page.html',
   styleUrl: './contact-details-page.scss'
 })
-export class ContactDetailsPage {
+export class ContactDetailsPage implements OnInit {
+  idContacto = input.required<string>();
+  readonly contactService = inject(ContactsService);
+  contacto: Contact | undefined;
+  cargandoContacto = false;
+  router = inject(Router);
 
+  async ngOnInit() {
+    if (this.idContacto()) {
+      // Si encuentro el contacto en el array del servicio lo uso, mientras tanto cargo el contacto del backend por si hubo cambios en el contacto
+      this.contacto = this.contactService.contacts.find(contacto => contacto.id.toString() === this.idContacto());
+      if (!this.contacto) this.cargandoContacto = true;
+      const res = await this.contactService.getContactById(this.idContacto());
+      if (res) this.contacto = res;
+      this.cargandoContacto = false;
+    }
+  }
+
+  async setFavorite() {
+    if (this.contacto) {
+      const res = await this.contactService.makeFavourite(this.contacto.id);
+      if (res) this.contacto = res;
+    }
+  }
+
+  async notFavorite() {
+    if (this.contacto) {
+      const res = await this.contactService.notFavourite(this.contacto.id);
+      if (res) this.contacto = res;
+    }
+  }
+
+  showConfirmModal() {
+    Swal.fire({
+      title: "¿Quiere borrar este contacto permanentemente?",
+      showDenyButton: false,
+      showCancelButton: true,
+      showConfirmButton: true,
+      confirmButtonColor: "red",
+      cancelButtonText: "Cancelar",
+      confirmButtonText: `Borrar`,
+      background: "var(--color-primary)",
+      color: "var(--color-text)",
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.deleteContact();
+      }
+    });
+  }
+  async deleteContact() {
+    if (this.contacto) {
+      const res = await this.contactService.deleteContact(this.contacto.id);
+      if (res) this.router.navigate(['/logged/contact-list-page']);
+    }
+  }
 }

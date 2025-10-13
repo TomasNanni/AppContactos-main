@@ -164,6 +164,11 @@ body {
 	color: var(--color-text-secondary);
 }
 
+.star {
+    border: none;
+    background-color: inherit;
+}
+
 header {
 	background-color: var(--color-primary);
 	text-align: center;

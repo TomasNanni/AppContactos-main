@@ -1,6 +1,6 @@
 <div class="contenedorContact">
   <td>
-  <div>Nº {{ index() + 1 }} {{ contacto().firstName }}</div>
+  <div>Nº {{ index() + 1 }} <a id="name" [routerLink]="['/logged/contact/', contacto().id]">{{ contacto().firstName }}</a></div>
   </td>
   <td>
   <div>
@@ -17,7 +17,7 @@
   </td>
   <td>
   <div>
-    <button (click)="contactsService.deleteContact(contacto().id)">Borrar</button>
+    <button (click)="showConfirmModal()">Borrar</button>
   </div>
   </td>
 </div>
