@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit } from '@angular/core';
+import { Component, inject, input, numberAttribute, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Contact } from '../../interfaces/contacto';
 import { ContactsService } from '../../services/contacts-service';
@@ -28,17 +28,10 @@ export class ContactDetailsPage implements OnInit {
     }
   }
 
-  async setFavorite() {
+  async toggleFavorite() {
     if (this.contacto) {
-      const res = await this.contactService.makeFavourite(this.contacto.id);
-      if (res) this.contacto = res;
-    }
-  }
-
-  async notFavorite() {
-    if (this.contacto) {
-      const res = await this.contactService.notFavourite(this.contacto.id);
-      if (res) this.contacto = res;
+      const res = await this.contactService.toggleFavourite(this.contacto.id);
+      if (res) this.contacto.isFavorite = !this.contacto.isFavorite;
     }
   }
 

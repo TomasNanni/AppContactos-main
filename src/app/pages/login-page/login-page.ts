@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Auth } from '../../services/auth-service';
 import { FormsModule, NgForm } from '@angular/forms';
-import { errorToast } from '../../utils/modals';
 import Swal from 'sweetalert2';
 
 @Component({

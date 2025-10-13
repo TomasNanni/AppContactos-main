@@ -96,29 +96,28 @@ export class ContactsService {
     return null;
   }
 
-  async makeFavourite(contactId: number) {
-    let contact = await this.getContactById(contactId);
-    if (contact) {
-      contact.isFavorite = true;
-      const editedContact = await this.editContact(contact);
-      return editedContact;
-    }
-    return null;
+  async toggleFavourite(contactId: number) {
+    const res = await fetch(this.URL_BASE + "/" + contactId + "/favorite",
+      {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + this.authService.token,
+        },
+      });
+    if (!res.ok) return;
+    /** Edita la lista actual de contactos reemplazando sólamente el favorito del que editamos */
+    this.contacts = this.contacts.map(contact => {
+      if (contact.id === contactId) {
+        return { ...contact, isFavorite: !contact.isFavorite };
+      };
+      return contact;
+    });
+    return true;
   }
 
-  async notFavourite(contactId: number) {
-    let contact = await this.getContactById(contactId);
-    if (contact) {
-      contact.isFavorite = false;
-      const editedContact = await this.editContact(contact);
-      return editedContact;
-    }
-    return null;
-  }
-
-  sortContacts(contacts: Contact[]){
+  sortContacts(contacts: Contact[]) {
     console.log(contacts.sort)
-    
+
   }
 
 }

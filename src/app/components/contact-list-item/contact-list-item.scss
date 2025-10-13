@@ -12,13 +12,16 @@ svg {
 
 .contenedorContact {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 2em;
     justify-content: space-between;
     color: red;
+    padding: 0.40em 0.75em;
 }
 
-
+.star{
+    padding: 0px;
+}
 
 button {
     color: var(--color-text-secondary);
