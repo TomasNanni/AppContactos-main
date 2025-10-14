@@ -12,6 +12,7 @@ export class ContactsService {
   readonly URL_BASE = "https://agenda-api.somee.com/api/contacts";
 
   contacts: Contact[] = [];
+  favoriteContacts: Contact[] = [];
 
   async createContact(nuevoContacto: NewContact) {
     const res = await fetch(this.URL_BASE,
@@ -80,6 +81,13 @@ export class ContactsService {
     }
   }
 
+  getFavoriteContacts() {
+    const res = this.contacts.filter((contact) => contact.isFavorite == true);
+    if (res) {
+      this.favoriteContacts = res;
+    }
+  }
+
   async getContactById(id: string | number) {
     const res = await fetch(this.URL_BASE + "/" + id,
       {
@@ -112,6 +120,7 @@ export class ContactsService {
       };
       return contact;
     });
+    this.getFavoriteContacts();
     return true;
   }
 

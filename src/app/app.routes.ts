@@ -7,6 +7,7 @@ import { onlyUserGuard } from './guards/only-user-guard-guard';
 import { ContactDetailsPage } from './pages/contact-details-page/contact-details-page';
 import { onlyPublicGuard } from './guards/only-public-guard-guard';
 import { NewEditContact } from './pages/new-edit-contact/new-edit-contact';
+import { FavoriteContactListPage } from './pages/favorite-contact-list-page/favorite-contact-list-page';
 
 export const routes: Routes = [
     {
@@ -29,6 +30,10 @@ export const routes: Routes = [
             {
                 path: "contact/:idContacto",
                 component: ContactDetailsPage
+            },
+            {
+                path: "favorite-contact-list-page",
+                component: FavoriteContactListPage
             }
         ]
     },

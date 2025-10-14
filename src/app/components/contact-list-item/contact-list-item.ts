@@ -27,7 +27,6 @@ export class ContactListItem {
         background: "var(--color-primary)",
         color: "var(--color-text)",
       }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
          this.contactsService.deleteContact(this.contacto().id)
         }

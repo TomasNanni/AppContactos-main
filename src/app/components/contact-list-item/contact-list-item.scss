@@ -2,8 +2,15 @@ div{
     color: red;
 }
 
-#name{
+.name{
     text-decoration: none;
+}
+
+td {
+    word-wrap: break-word;
+    padding: 0.5em ;
+    width: calc(100% / 5);
+    text-align: center;
 }
 
 svg {
@@ -13,10 +20,9 @@ svg {
 .contenedorContact {
     display: flex;
     align-items: center;
-    gap: 2em;
-    justify-content: space-between;
+    gap: 3em;
     color: red;
-    padding: 0.40em 0.75em;
+    padding: 0.40em 0em;
 }
 
 .star{
