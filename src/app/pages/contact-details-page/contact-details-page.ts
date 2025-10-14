@@ -4,6 +4,7 @@ import { Contact } from '../../interfaces/contacto';
 import { ContactsService } from '../../services/contacts-service';
 import Swal from 'sweetalert2';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { showConfirmModal } from '../../utils/modals';
 @Component({
   selector: 'app-contact-details-page',
   imports: [RouterLink],
@@ -36,16 +37,9 @@ export class ContactDetailsPage implements OnInit {
   }
 
   showConfirmModal() {
-    Swal.fire({
+    showConfirmModal.fire({
       title: "¿Quiere borrar este contacto permanentemente?",
-      showDenyButton: false,
-      showCancelButton: true,
-      showConfirmButton: true,
-      confirmButtonColor: "red",
-      cancelButtonText: "Cancelar",
       confirmButtonText: `Borrar`,
-      background: "var(--color-primary)",
-      color: "var(--color-text)",
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
