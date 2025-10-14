@@ -138,7 +138,7 @@
         </div>
       </div>
       <div id="buttonContainer">
-        <a routerLink="['/logged/contact', contacto.id, 'edit']">Editar</a>
+        <a [routerLink]="['/logged/contact/', contacto.id]">Editar</a>
         <button (click)="showConfirmModal()">Borrar</button>
       </div>
     </div>

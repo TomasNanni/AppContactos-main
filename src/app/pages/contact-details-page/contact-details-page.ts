@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 import { Contact } from '../../interfaces/contacto';
 import { ContactsService } from '../../services/contacts-service';
 import Swal from 'sweetalert2';
-
+import { RouterLink, RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-contact-details-page',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './contact-details-page.html',
   styleUrl: './contact-details-page.scss'
 })
