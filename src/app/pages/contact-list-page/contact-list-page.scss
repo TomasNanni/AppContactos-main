@@ -18,7 +18,6 @@ app-contact-list-item {
 }
 
 table {
-    border-collapse: collapse;
     width: 100%;
     overflow: auto;
 }
@@ -27,7 +26,6 @@ table {
     max-height: 923px;
     min-height: fit-content;
 }
-
 
 td:hover {
     filter: brightness(150%);

@@ -165,9 +165,10 @@ body {
 }
 
 .star {
-    border: none;
-    background-color: inherit;
+	border: none;
+	background-color: inherit;
 }
+
 
 header {
 	background-color: var(--color-primary);
@@ -176,6 +177,9 @@ header {
 	display: flex;
 	justify-content: center;
 	flex-wrap: nowrap;
+	position: sticky;
+	top: 0;
+	z-index: 1;
 
 	h1 {
 		color: var(--color-text);
@@ -190,6 +194,7 @@ header {
 		}
 	}
 }
+
 .error {
 	padding-top: 1em;
 	color: var(--secondary-color);
