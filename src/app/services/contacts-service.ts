@@ -77,6 +77,7 @@ export class ContactsService {
       })
     if (res.ok) {
       const resJson: Contact[] = await res.json()
+      resJson.sort((contact1,contact2) => contact1.firstName.localeCompare(contact2.firstName));
       this.contacts = resJson;
     }
   }
@@ -84,6 +85,7 @@ export class ContactsService {
   async getFavoriteContacts() {
     await this.getContacts();
     const res = this.contacts.filter((contact) => contact.isFavorite == true);
+    res.sort((contact1,contact2) => contact1.firstName.localeCompare(contact2.firstName));
     if (res) {
       this.favoriteContacts = res;
     }

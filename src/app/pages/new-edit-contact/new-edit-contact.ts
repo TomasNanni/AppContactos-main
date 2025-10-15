@@ -62,7 +62,10 @@ export class NewEditContact implements OnInit {
         res = await this.contactsService.editContact({ ...nuevoContacto, id: this.contactoBack!.id });
         this.showCompletionModalEdit();
       }
-      else return;
+      else {
+        this.solicitudABackEnCurso = false;
+        return
+      };
     }
     else {
       const message = await this.showConfirmModalCreate();
@@ -70,7 +73,10 @@ export class NewEditContact implements OnInit {
         res = await this.contactsService.createContact(nuevoContacto);
         this.showCompletionModalCreate();
       }
-      else return;
+      else {
+        this.solicitudABackEnCurso = false;
+        return
+      };
     }
 
     if (!res) {
