@@ -53,6 +53,7 @@ export class NewEditContact implements OnInit {
     let res;
 
     if (this.idContact()) {
+      console.log({...nuevoContacto, id:this.contactoBack!.id});
       res = await this.contactsService.editContact({...nuevoContacto, id:this.contactoBack!.id});
     }
     else{
