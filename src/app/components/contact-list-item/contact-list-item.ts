@@ -4,7 +4,7 @@ import { ContactsService } from '../../services/contacts-service';
 import { Router, RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Auth } from '../../services/auth-service';
-import { showConfirmModal } from '../../utils/modals';
+import { showCompletionModal, showConfirmModal } from '../../utils/modals';
 
 @Component({
   selector: 'app-contact-list-item',
@@ -26,8 +26,13 @@ export class ContactListItem {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         this.deleteContact();
+        this.showCompletionModal();
       }
     });
+  }
+
+  showCompletionModal() {
+    showCompletionModal.fire();
   }
 
   async deleteContact() {

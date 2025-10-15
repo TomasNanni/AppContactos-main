@@ -9,3 +9,12 @@ export const showConfirmModal = Swal.mixin({
     background: "var(--color-primary)",
     color: "var(--color-text)",
 });
+
+export const showCompletionModal = Swal.mixin({
+    background: "var(--color-primary)",
+    color: "var(--color-text)",
+    showConfirmButton: true,
+    confirmButtonColor: "var(--secondary-color)",
+    title: "Contacto borrado correctamente",
+    icon: "success"
+})

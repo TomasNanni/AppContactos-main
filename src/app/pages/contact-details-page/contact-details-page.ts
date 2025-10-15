@@ -4,7 +4,7 @@ import { Contact } from '../../interfaces/contacto';
 import { ContactsService } from '../../services/contacts-service';
 import Swal from 'sweetalert2';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { showConfirmModal } from '../../utils/modals';
+import { showCompletionModal, showConfirmModal } from '../../utils/modals';
 @Component({
   selector: 'app-contact-details-page',
   imports: [RouterLink],
@@ -44,8 +44,13 @@ export class ContactDetailsPage implements OnInit {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         this.deleteContact();
+        this.showCompletionModal();
       }
     });
+  }
+
+  showCompletionModal() {
+    showCompletionModal.fire();
   }
   async deleteContact() {
     if (this.contacto) {
