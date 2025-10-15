@@ -20,7 +20,14 @@ app-contact-list-item {
 table {
     border-collapse: collapse;
     width: 100%;
+
 }
+
+#wrapper {
+    max-height: 923px;
+    overflow: auto;
+}
+
 
 td:hover {
     filter: brightness(150%);

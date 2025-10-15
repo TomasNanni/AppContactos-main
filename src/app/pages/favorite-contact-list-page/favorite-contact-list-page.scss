@@ -22,6 +22,12 @@ table {
     width: 100%;
 }
 
+#wrapper {
+    max-height: 923px;
+    overflow: auto;
+}
+
+
 td:hover {
     filter: brightness(150%);
 }
