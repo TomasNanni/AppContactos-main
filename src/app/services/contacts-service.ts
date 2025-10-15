@@ -81,7 +81,8 @@ export class ContactsService {
     }
   }
 
-  getFavoriteContacts() {
+  async getFavoriteContacts() {
+    await this.getContacts();
     const res = this.contacts.filter((contact) => contact.isFavorite == true);
     if (res) {
       this.favoriteContacts = res;

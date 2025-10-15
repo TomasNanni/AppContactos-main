@@ -26,7 +26,11 @@
     <div class="contenedorInput">
       <label for="phone">Telefono*</label>
       <input class="inputPrimario" id="phone" name="number" type="text" ngModel required="true" minlength="3"
-        maxlength="30">
+        maxlength="30" #number="ngModel">
+      @if (number.dirty && number.invalid) {
+      <pre class="error">El telefono es obligatorio y
+  de minimo 3 digitos</pre>
+      }
     </div>
     <div class="contenedorInput">
       <label for="email">Email</label>

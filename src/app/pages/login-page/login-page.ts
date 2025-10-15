@@ -17,7 +17,6 @@ export class LoginPage {
   errorLogin = false;
 
   async login(form: NgForm) {
-    console.log(form.value)
     this.errorLogin = false;
     if (!form.value.email || !form.value.password) {
       this.errorLogin = true;
