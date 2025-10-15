@@ -71,6 +71,9 @@
       @if (email.invalid && !email.pristine) {
       <p class="error">Debe colocar un correo electrónico.</p>
       }
+      @if (errorMail) {
+        <p class="error">Debe colocar un mail correcto.</p>
+      }
     </div>
     <div class="contenedorInput">
       <label for="password">Contraseña*</label>
@@ -116,7 +119,7 @@ de al menos 4 caracteres.</pre
       <button>Registrarse</button>
     </div>
     @if (errorRegister) {
-    <p class="error">Error indeterminado, intente nuevamente.</p>
+    <p class="error">Error, intente nuevamente.</p>
     } @if (solicitudABackEnCurso) {
     <app-spinner />
     }

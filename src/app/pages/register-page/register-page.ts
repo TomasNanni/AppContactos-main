@@ -17,6 +17,7 @@ export class RegisterPage {
   solicitudABackEnCurso = false;
   userService = inject(UsersService);
   router = inject(Router)
+  errorMail = false;
 
   async register(form: FormUser) {
     this.errorRegister = false;
@@ -29,6 +30,10 @@ export class RegisterPage {
       form.password !== form.password2
     ) {
       this.errorRegister = true;
+      return;
+    }
+    if (!form.email.includes("@")) {
+      this.errorMail = true;
       return;
     }
     this.solicitudABackEnCurso = true;

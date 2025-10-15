@@ -16,27 +16,34 @@
     padding: 1em;
 }
 
+.defaultMsg{
+    text-align: left;
+}
+
 #img{
     height: 4em;
     padding-bottom: 1em;
 }
 
-
+*{
+    text-align: left;
+}
 
 h2{
     border-bottom: 2px var(--secondary-color) solid;
     max-width: fit-content;
 }
 h3{
-    max-width: fit-content;
+    max-width: 11em;
     padding-top: 7px;
 }
 
 #profilePictureStar{
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding-right: 1em;
-    svg{
+    svg, img{
         height: 4em;
     }
 }
