@@ -15,6 +15,5 @@ export const showCompletionModal = Swal.mixin({
     color: "var(--color-text)",
     showConfirmButton: true,
     confirmButtonColor: "var(--secondary-color)",
-    title: "Contacto borrado correctamente",
     icon: "success"
 })

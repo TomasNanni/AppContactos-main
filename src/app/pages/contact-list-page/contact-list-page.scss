@@ -20,12 +20,12 @@ app-contact-list-item {
 table {
     border-collapse: collapse;
     width: 100%;
-
+    overflow: auto;
 }
 
 #wrapper {
     max-height: 923px;
-    overflow: auto;
+    min-height: fit-content;
 }
 
 

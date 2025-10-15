@@ -3,17 +3,18 @@ import { FormsModule } from '@angular/forms';
 import { RedirectCommand, Router, RouterLink } from '@angular/router';
 import { FormUser } from '../../interfaces/user';
 import { UsersService } from '../../services/users-service';
+import { Spinner } from "../../components/spinner/spinner";
 
 @Component({
   selector: 'app-register',
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, Spinner],
   templateUrl: './register-page.html',
   styleUrl: './register-page.scss',
 })
 export class RegisterPage {
   isLoading = false;
   errorRegister = false;
-
+  solicitudABackEnCurso = false;
   userService = inject(UsersService);
   router = inject(Router)
 
@@ -30,15 +31,14 @@ export class RegisterPage {
       this.errorRegister = true;
       return;
     }
-
-    this.isLoading = true;
+    this.solicitudABackEnCurso = true;
     const ok = await this.userService.register({
       firstName: form.firstName,
       lastName: form.lastName,
       email: form.email,
       password: form.password,
     });
-    this.isLoading = false;
+    this.solicitudABackEnCurso = false;
 
     if (!ok) {
       this.errorRegister = true;

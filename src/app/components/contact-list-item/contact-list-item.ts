@@ -32,7 +32,9 @@ export class ContactListItem {
   }
 
   showCompletionModal() {
-    showCompletionModal.fire();
+    showCompletionModal.fire({
+      title: "Contacto borrado correctamente",
+    });
   }
 
   async deleteContact() {
