@@ -18,10 +18,13 @@ al menos 4 caracteres.</pre>
             } 
         </div>
         <div class="contenedorInput">
-            <button [disabled] = "loginForm.invalid">Iniciar Sesión</button>
+            <button [disabled] = "loginForm.invalid || solicitudABackEnCurso">Iniciar Sesión</button>
             @if (errorLogin) {
                 <p class="error">Datos de sesión incorrectos, intente nuevamente.</p>
             } 
+            @if (solicitudABackEnCurso) {
+                <app-spinner/>
+            }
         </div>
         <div class="contenedorInput">
             <p>No tenés cuenta? <a routerLink="/register">Registrate</a></p>
